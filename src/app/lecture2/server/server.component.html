@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-16">{{serverStatus}}</div>
+        <div class="col-md-6"> {{serverStatusStr()}}</div>
+    </div>
+</div>
+
+<button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onUpdateServer()">Online Server</button>
+
+
+<button class="btn btn-danger" [disabled]="!allowNewServer" (click)="onOffline()">Offline Server</button>
+
+<input type="text" name="" id="" class="form-control" [(ngModel)]="twoWayBinding"/>
+<p>{{twoWayBinding}}</p>
+
+<!-- <div *ngIf="!iserverCreated;else serverCreated">No Server Created!</div>
+<ng-template #serverCreated>
+    <div>Server Created Seccessfuly!</div>
+</ng-template> -->
+
+@if (!iserverCreated) {
+    <!-- <div [ngStyle]="styleNoServer">No Server Created!</div> -->
+    <div [ngClass]="mapScssFail">No Server Created!</div>
+}@else
+{
+    <div [ngClass]="mapScssSuccess">Server Created Seccessfuly!</div>
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <button class="btn btn-success" (click)="onAddNewServer()">Add New Server</button>
+        </div>
+        <div class="col-md-12">
+            <ul>
+                <!-- <li *ngFor="let server of servers">
+                    {{server}}
+                </li> -->
+                @for (server of servers; track $index) {
+                    <li>{{server}}</li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>
