@@ -8,15 +8,14 @@ import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    AppComponent,
     ServerComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    AppComponent
   ],
   providers: [],
-  bootstrap: [AppComponent]
 })
 export class AppModule { }

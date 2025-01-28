@@ -1,0 +1,51 @@
+<div class="contanier mt-5">
+    <div class="row">
+        <div class="col-md-3">
+            <label for="value" class="m-1">Value</label>
+            <input type="text" id="value" [(ngModel)]="userName" (change)="onUpdate()" />
+            <p>{{userName}}</p>
+        </div>
+        <div class="col-md-3">
+            <button type="button" class="btn btn-warning" [disabled]="!isUserNameEmpty">Enter a value </button>
+        </div>
+        &nbsp;
+        <div class="col-md-3">
+            <button type="button" class="btn btn-danger" (click)="showDetails()">Show Details</button>
+        </div>
+        <div class="col-md-3">
+
+            @if(isShowDetails){
+            <p>Display Details</p>
+            }
+
+        </div>
+        
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <button class="btn btn-primary" (click)="onShowOrHidden()">Show/hide password</button>
+            </div>
+            <div class="col-md-3">
+                @if(isShowPassword){
+                <p>e.g. SecretPassword is tuna</p>
+                }
+            </div>
+            <div class="col-md-3">
+                <button type="button" class="btn btn-success" (click)="onDateClicked()">update Date Array with change 5th date</button>
+            </div>
+            <div class="col-md-3">
+                <ul>
+                    @for (item of timeClicked; track $index) {
+                        @if($index >= 5){
+                            <li [ngClass]="mapfifthDateScss">{{item}}</li>
+                        }@else {
+                            <li>{{item}}</li>
+                        }
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
